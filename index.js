@@ -4,23 +4,16 @@ let arr_data = fetch('https://jsonplaceholder.typicode.com/todos')
         render(data);
     });
 
-    //console.log(arr_data);
-
-
 
 
 async function render(data) {
-    //console.log(data);
-    //const response = await fetch('https://jsonplaceholder.typicode.com/todos')
     const todo_list = document.getElementById('todo_list');
 
     const inputVal = document.getElementById('inputVal');
     const add_button = document.getElementById('add_button');
-    
+
     todo_list.innerHTML = '';
 
-    //const data = await response.json();
-    
     add_button.addEventListener('click', (e) => {
         e.preventDefault();
         addI(inputVal.value, data);
@@ -30,7 +23,6 @@ async function render(data) {
 
 
     for (let i = 0; i < data.length; i++) {
-        //console.log(data.length)
         const div = document.createElement('div');
         div.classList.add('list_item');
 
@@ -51,7 +43,6 @@ async function render(data) {
 
         if (data[i].completed === true) {
             input.checked = true;
-            //input.remove();
             p.style.color = 'white';
         }
 
@@ -83,7 +74,6 @@ async function addI(title, allData) {
         body: JSON.stringify(
             {
                 "userId": 10,
-                //"id": last_id + 1,
                 "title": `${title}`,
                 "completed": false,
             }
@@ -92,21 +82,13 @@ async function addI(title, allData) {
             'Content-type': 'application/json; charset=UTF-8',
         }
     }).then((response) => response.json())
-    .then((data) => {
-        if(title !== ''){
-            allData.push(data);
-            console.log(allData);
-            render(allData);
-        }
-    })
-
-    // const data = await response.json();
-    // // console.log(data);
-
-    // allData.unshift(data);
-    // console.log(allData);
-    // // console.log(allData.length);
-    // render(allData);
+        .then((data) => {
+            if (title !== '') {
+                allData.push(data);
+                console.log(allData);
+                render(allData);
+            }
+        })
 }
 
 function done(id, p) {
@@ -121,18 +103,3 @@ function done(id, p) {
         }
     })
 }
-
-
-
-// async function getData(){
-//     let temp;
-//     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-//     const data = await response.json()
-//     temp = data;
-//     console.log(temp)
-//     return temp
-// }
-
-//const data = getData();
-
-// render(arr_data);

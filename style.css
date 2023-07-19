@@ -42,3 +42,8 @@ body {
 .doneBut{
     background-color: red;
 }
+
+p{
+    word-break: break-all;
+    max-width: 480px;
+}
