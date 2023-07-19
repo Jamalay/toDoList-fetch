@@ -1,0 +1,44 @@
+.list_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+button {
+    height: 20px;
+}
+
+.inputDiv {
+    width: 600px;
+    margin: auto;
+}
+
+.textInput {
+    width: 85%;
+    height: 40px;
+}
+
+#add_button {
+    height: 45px;
+    width: 13%;
+}
+
+.main {
+    width: 600px;
+    margin: auto;
+}
+
+body {
+    background-color: gray;
+}
+
+.list_item{
+    border: solid 1px;
+    margin-top: 0.5em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+.doneBut{
+    background-color: red;
+}
